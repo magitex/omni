@@ -7,7 +7,7 @@
         "build": "next build",
         "build-dev":"next build && next export",
         "start": "next start",
-        "start:prod":"next start -p 80",
+        "start:prod":"next start -p 8080",
         "heroku-postbuild": "npm run build"     
     },
     "dependencies": {
