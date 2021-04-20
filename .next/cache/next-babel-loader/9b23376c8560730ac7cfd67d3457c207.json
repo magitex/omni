@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React, { createContext } from 'react';\nexport const HomeContext = /*#__PURE__*/createContext(null);","map":null,"metadata":{},"sourceType":"module"}
