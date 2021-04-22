@@ -12,6 +12,7 @@ import HomeDefaultProductListing from '~/components/partials/homepage/home-defau
 import HomeDefaultBanner from '~/components/partials/homepage/home-default/HomeDefaultBanner';
 import HomeDefaultCategories from '~/components/partials/homepage/home-default/HomeDefaultCategories';
 import HomeDefaultOffer from '~/components/partials/homepage/home-default/HomeDefaultOffer';
+import HomeDefaultTopBrands from '~/components/partials/homepage/home-default/HomeDefaultTopBrands';
 import Helper from '~/components/helpers/networks';
 import {HomeContext} from '~/components/helpers/context';
 
@@ -53,29 +54,17 @@ if(token)
         }}
         >
         <ContainerHomeDefault title="Multipurpose Marketplace React Ecommerce Template">
-            <HomeDefaultBanner />
-            <HomeDefaultCategories />
+            <HomeDefaultBanner />      
             <HomeDefaultOffer  collectionSlug="deal-of-the-day" />
             <SiteFeatures />
             <HomeDefaultDealOfDay collectionSlug="deal-of-the-day" />
-            <HomeAdsColumns />
-            <HomeDefaultTopCategories />
+            <HomeDefaultTopBrands />             
             <HomeDefaultProductListing
                 collectionSlug="consumer-electronics"
-                title="Consumer Electronics"
+                title="TrendingItems"
             />
-            <HomeDefaultProductListing
-                collectionSlug="clothings"
-                title="Clothings"
-            />
-            <HomeDefaultProductListing
-                collectionSlug="garden-and-kitchen"
-                title="Garden & Kitchen"
-            />
-            <HomeAds />
-            <DownLoadApp />
-            <NewArrivals collectionSlug="new-arrivals-products" />
-            <Newletters />
+            <HomeDefaultTopCategories />
+             <Newletters />
         </ContainerHomeDefault>
         </HomeContext.Provider>
     );
