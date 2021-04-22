@@ -11,7 +11,7 @@ import ContainerHomeDefault from '~/components/layouts/ContainerHomeDefault';
 import HomeDefaultProductListing from '~/components/partials/homepage/home-default/HomeDefaultProductListing';
 import HomeDefaultBanner from '~/components/partials/homepage/home-default/HomeDefaultBanner';
 import HomeDefaultCategories from '~/components/partials/homepage/home-default/HomeDefaultCategories';
-
+import HomeDefaultOffer from '~/components/partials/homepage/home-default/HomeDefaultOffer';
 import Helper from '~/components/helpers/networks';
 import {HomeContext} from '~/components/helpers/context';
 
