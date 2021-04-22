@@ -34,7 +34,7 @@ class NavigationDefault extends Component {
                         <ul className="navigation__extra">
                             <li>
                                 <Link href="/vendor/become-a-vendor">
-                                    <a>Sell on Martfury</a>
+                                    <a>Sell on Omnikeyz</a>
                                 </Link>
                             </li>
                             <li>
