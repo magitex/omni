@@ -30,10 +30,7 @@ class NavigationDefault extends Component {
                         <MenuCategoriesDropdown />
                     </div>
                     <div className="navigation__right">
-                        <Menu
-                            source={menuData.menuPrimary.menu_1}
-                            className="menu"
-                        />
+                     
                         <ul className="navigation__extra">
                             <li>
                                 <Link href="/vendor/become-a-vendor">
