@@ -42,7 +42,7 @@ const Logo = ({ type }) => {
     else {
         data = {
             url: '/',
-            img: '/static/img/logo_light.png',
+            img: '/static/img/omnikey_b.png',
         };
     }
     return (
