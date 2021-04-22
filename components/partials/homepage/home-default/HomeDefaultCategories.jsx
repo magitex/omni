@@ -7,7 +7,7 @@ const HomeDefaultCategories = () => {
     const {prodcategories}=useContext(HomeContext);
    return <div className="ps-top-categories">
         <div className="ps-container">
-            <h3>Categories11</h3>
+            <h3>Categories</h3>
             <div className="row">
                 {prodcategories && prodcategories.map((pc,key)=>(
                 <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 " key={key}>
