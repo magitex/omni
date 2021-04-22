@@ -6,7 +6,7 @@
         "dev": "next dev -p 3001",
         "build": "next build",
         "build-dev":"next build && next export",
-        "start": "next start",
+        "start": "next start -p $PORT",
         "start:prod":"next start -p 8080",
         "heroku-postbuild": "npm run build"     
     },
