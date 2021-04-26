@@ -34,6 +34,8 @@ if(token)
 
             // },1000)
         }
+        const token=await Helper.getToken();
+        data= await Helper.dashboardData();
         // console.log("123 token",data);
         const tempBanners =data && data.data.data.dashboardPanel.banners; 
         const tempProdCategories =data && data.data.data.dashboardPanel.productCategories; 
