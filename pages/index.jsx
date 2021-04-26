@@ -19,6 +19,7 @@ import {HomeContext} from '~/components/helpers/context';
 const HomepageDefaultPage = () => {
     const [banners, setBanners] = useState([]);
     const [prodcategories, setProdCategories] = useState([]);
+    const [offers, setoffers] = useState([]);
     async function getBannerItems() {
        
         console.log("123 ",localStorage.getItem("token"));
@@ -30,9 +31,12 @@ const HomepageDefaultPage = () => {
          console.log("data",data);
         const tempBanners =data && data.data.data.dashboardPanel.banners; 
         const tempProdCategories =data && data.data.data.dashboardPanel.productCategories; 
+        const tempoffers =data && data.data.data.dashboardPanel.offers; 
+
         console.log("123 banners>>",tempBanners)
         setBanners(tempBanners);
         setProdCategories(tempProdCategories);
+        setoffers(tempoffers);
     }
 
     useEffect(()=>{ 
@@ -43,12 +47,13 @@ const HomepageDefaultPage = () => {
         <HomeContext.Provider
         value={{
             banners,
-            prodcategories
+            prodcategories,
+            offers
         }}
         >
         <ContainerHomeDefault title="Multipurpose Marketplace React Ecommerce Template">
             <HomeDefaultBanner /> 
-              
+            <HomeDefaultOffer  collectionSlug="deal-of-the-day" />
             <HomeDefaultOffer  collectionSlug="deal-of-the-day" />
             <HomeDefaultDealOfDay collectionSlug="deal-of-the-day" />
             <HomeDefaultTopBrands />             
