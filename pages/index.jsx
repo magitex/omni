@@ -59,9 +59,7 @@ if(token)
         }}
         >
         <ContainerHomeDefault title="Multipurpose Marketplace React Ecommerce Template">
-            <HomeDefaultBanner /> 
-              
-            <HomeDefaultOffer  collectionSlug="deal-of-the-day" />
+            <HomeDefaultBanner />               
             <HomeDefaultDealOfDay collectionSlug="deal-of-the-day" />
             <HomeDefaultTopBrands />             
             <HomeDefaultProductListing
