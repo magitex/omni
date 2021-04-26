@@ -20,10 +20,14 @@ const HomepageDefaultPage = () => {
     const [banners, setBanners] = useState([]);
     const [prodcategories, setProdCategories] = useState([]);
     async function getBannerItems() {
-       const token=await Helper.getToken();
+       
+        console.log("123 ",localStorage.getItem("token"));
+        let data;
+       
+        const token=await Helper.getToken();
         console.log("new token11",localStorage.getItem("token"));
         data= await Helper.dashboardData();
-        // console.log("123 token",data);
+         console.log("data",data);
         const tempBanners =data && data.data.data.dashboardPanel.banners; 
         const tempProdCategories =data && data.data.data.dashboardPanel.productCategories; 
         console.log("123 banners>>",tempBanners)
