@@ -60,7 +60,7 @@ const Network = {
                 method: 'post',
                 data: data,
                 headers: { 
-                    'Authorization': 'Bearer '+localStorage.getItem('token'), 
+                    'Authorization': 'Bearer y2wRA4H8A7ryqkfal-tkyQVJR68', 
                     'Content-Type': 'application/json'
                   },
             })
