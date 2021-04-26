@@ -59,10 +59,10 @@ const Network = {
                 url: serverUrl + config.dashboardData,
                 method: 'post',
                 data: data,
-                // headers: {
-                //     'Content-Type': 'application/x-www-form-urlencoded',
-                //     // Authorization: 'Basic ' + btoa('mobile:pin'),
-                // },
+                headers: { 
+                    'Authorization': 'Bearer '+localStorage.getItem('token'), 
+                    'Content-Type': 'application/json'
+                  },
             })
                 .then((data) => {
                     resolve(data);
