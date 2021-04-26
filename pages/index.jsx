@@ -30,11 +30,12 @@ const HomepageDefaultPage = () => {
             const token=await Helper.getToken();
             // setTimeout(async()=>{
 if(token)
-   data= await Helper.dashboardData();
+   //data= await Helper.dashboardData();
 
             // },1000)
         }
         const token=await Helper.getToken();
+        console.log("new token ",localStorage.getItem("token"));
         data= await Helper.dashboardData();
         // console.log("123 token",data);
         const tempBanners =data && data.data.data.dashboardPanel.banners; 
