@@ -1,5 +1,5 @@
 module.exports = {
-    baseUrl: 'http://166.62.36.174:8080/OmniKeyzRestAPI',
+    baseUrl: 'https://omnikeyzapi.herokuapp.com',
     dashboardData: '/rs/v1/master/getDashboardDetails',
     auth: '/oauth/token',
 };
