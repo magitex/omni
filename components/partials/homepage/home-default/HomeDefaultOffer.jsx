@@ -7,10 +7,13 @@ import CountDownSimple from '~/components/elements/CountDownSimple';
 import ProductDealOfDay from '~/components/elements/products/ProductDealOfDay';
 import { generateTempArray } from '~/utilities/common-helpers';
 import { getProductsByCollectionHelper } from '~/utilities/strapi-fetch-data-helpers';
+import {HomeContext} from '~/components/helpers/context';
 
 const HomeDefaultOffer = ({ collectionSlug }) => {
     const [productItems, setProductItems] = useState(null);
     const [loading, setLoading] = useState(true);
+    const {offers}=useContext(HomeContext);
+
 
     async function getProducts() {
         setLoading(true);
@@ -34,9 +37,9 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
 
     // Views
     let productItemsView;
-    if (!loading) {
-        if (productItems && productItems.length > 0) {
-            const slideItems = productItems.map((item) => (
+    
+        if (offers && offers.length > 0) {
+            const slideItems = offers.map((item) => (
                 <ProductDealOfDay product={item} key={item.id} />
             ));
             productItemsView = (
@@ -47,14 +50,7 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
         } else {
             productItemsView = <p>No product(s) found.</p>;
         }
-    } else {
-        const skeletons = generateTempArray(6).map((item) => (
-            <div className="col-xl-2 col-lg-3 col-sm-3 col-6" key={item}>
-                <SkeletonProduct />
-            </div>
-        ));
-        productItemsView = <div className="row">{skeletons}</div>;
-    }
+    
 
     return (
         <div className="ps-deal-of-day">
