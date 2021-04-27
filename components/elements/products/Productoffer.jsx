@@ -17,7 +17,7 @@ const Productoffer = ({ product }) => {
            
             <div className="ps-product__container">
             <div className="ps-product__thumbnail">
-            {StrapiProductThumbnail(product)}
+            {omniProductThumbnail(product)}
                 <ModuleProductActions product={product} />
             </div>
                 <div className="ps-product__content">
@@ -32,9 +32,7 @@ const Productoffer = ({ product }) => {
                     <div className="ps-product__rating">
                         <Rating />
                         <span>{product.itemRating}</span>
-                    </div>
-                    <ModuleProductProgressbar product={product} />
-                   
+                    </div>                                     
                 </div>
             </div>
         </div>
