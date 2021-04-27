@@ -65,6 +65,7 @@ const HomeDefaultBanner = () => {
                             backgroundImage: `url(${item.itemImage})`,
                         }}
                     />
+                    <img src="url(${item.itemImage})" />
                 </Link>
             </div>
         ));
