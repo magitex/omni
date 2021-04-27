@@ -155,3 +155,33 @@ export function StrapiProductThumbnail(product) {
 
     return view;
 }
+export function omniProductThumbnail(product) {
+    let view;
+
+    if (product.itemImage) {
+        view = (
+            <Link href="/product/[pid]" as={`/product/${product.itemTypeID}`}>
+                <a>
+                    <LazyLoad>
+                        <img
+                            src={product.itemImage}
+                            alt={product.itemName}
+                        />
+                    </LazyLoad>
+                </a>
+            </Link>
+        );
+    } else {
+        view = (
+            <Link href="/product/[pid]" as={`/product/${product.itemTypeID}`}>
+                <a>
+                    <LazyLoad>
+                        <img src="/static/img/not-found.jpg" alt="martfury" />
+                    </LazyLoad>
+                </a>
+            </Link>
+        );
+    }
+
+    return view;
+}

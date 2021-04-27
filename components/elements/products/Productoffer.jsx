@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Link from 'next/link';
 import Rating from '../Rating';
 import {
+    omniProductThumbnail,
     StrapiProductBadge,
     StrapiProductPriceExpanded,
     StrapiProductThumbnail,
@@ -16,7 +17,7 @@ const Productoffer = ({ product }) => {
            
             <div className="ps-product__container">
             <div className="ps-product__thumbnail">
-            <img src={product.itemImage} alt="{product.itemName}" />
+            {StrapiProductThumbnail(product)}
                 <ModuleProductActions product={product} />
             </div>
                 <div className="ps-product__content">
