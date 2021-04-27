@@ -54,7 +54,6 @@ const HomepageDefaultPage = () => {
         <ContainerHomeDefault title="Multipurpose Marketplace React Ecommerce Template">
             <HomeDefaultBanner /> 
             <HomeDefaultOffer  collectionSlug="deal-of-the-day" />
-            <HomeDefaultOffer  collectionSlug="deal-of-the-day" />
             <HomeDefaultDealOfDay collectionSlug="deal-of-the-day" />
             <HomeDefaultTopBrands />             
             <HomeDefaultProductListing

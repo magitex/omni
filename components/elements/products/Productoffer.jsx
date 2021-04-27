@@ -16,7 +16,7 @@ const Productoffer = ({ product }) => {
            
             <div className="ps-product__container">
                 <Link href="/shop">
-                    <a className="ps-product__vendor">Young Shop</a>
+                    <a className="ps-product__vendor"> {product.itemPrice}</a>
                 </Link>
                 <div className="ps-product__content">
                 <img src={product.itemImage} alt="martfury" />
