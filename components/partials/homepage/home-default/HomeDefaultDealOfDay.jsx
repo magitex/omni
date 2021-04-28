@@ -31,7 +31,7 @@ const HomeDefaultDealOfDay = ({ collectionSlug }) => {
     }
 
     useEffect(() => {
-        getProducts();
+        getProducts(dealsOfTheDay);
     }, [dealsOfTheDay]);
 
     // Views
@@ -39,7 +39,7 @@ const HomeDefaultDealOfDay = ({ collectionSlug }) => {
     if (!loading) {
         if (productItems && productItems.length > 0) {
             const slideItems = productItems.map((item) => (
-                <Productoffer product={item} key={item.id} />
+                <ProductDealOfDay product={item} key={item.id} />
             ));
             productItemsView = (
                 <Slider {...carouselFullwidth} className="ps-carousel outside">
