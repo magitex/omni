@@ -15,11 +15,12 @@ const Productoffer = ({ product }) => {
     return (
         <div className="ps-product ps-product--inner">
            
-            <div className="ps-product__container">
+            
             <div className="ps-product__thumbnail">
             {omniProductThumbnail(product)}
                 <ModuleProductActions product={product} />
             </div>
+            <div className="ps-product__container">
                 <div className="ps-product__content">
                 
 
