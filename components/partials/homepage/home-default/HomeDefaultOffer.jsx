@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import SkeletonProduct from '~/components/elements/skeletons/SkeletonProduct';
 import { carouselFullwidth } from '~/utilities/carousel-helpers';
 import CountDownSimple from '~/components/elements/CountDownSimple';
-import Productoffer from '~/components/elements/products/Productoffer';
+import ProductDealOfDay from '~/components/elements/products/ProductDealOfDay';
 import { generateTempArray } from '~/utilities/common-helpers';
 import { getProductsByCollectionHelper } from '~/utilities/strapi-fetch-data-helpers';
 import {HomeContext} from '~/components/helpers/context';
@@ -15,13 +15,13 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
     const [loading, setLoading] = useState(true);
     const {offers}=useContext(HomeContext);
 
-    async function getProducts() {
+    async function getProducts(offers) {
         setLoading(true);
         const responseData = await getProductsByCollectionHelper(
             collectionSlug
         );
-        if (responseData) {
-            setProductItems(responseData);
+        if (offers) {
+            setProductItems(offers);
             setTimeout(
                 function () {
                     setLoading(false);
@@ -32,8 +32,8 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
     }
 
     useEffect(() => {
-        getProducts();
-    }, []);
+        getProducts(offers);
+    }, [offers]);
 
     // Views
     let productItemsView;
