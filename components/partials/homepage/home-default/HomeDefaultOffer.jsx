@@ -36,7 +36,8 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
 
     // Views
     let productItemsView;
-    
+        if (!loading) {
+
         if (offers && offers.length > 0) {
             const slideItems = offers.map((item) => (
                 <Productoffer product={item} key={item.id} />
@@ -49,7 +50,7 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
         } else {
             productItemsView = <p>No product(s) found.</p>;
         }
-    
+     }
 
     return (
         <div className="ps-deal-of-day">
