@@ -20,7 +20,7 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
             collectionSlug
         );
         if (offers) {
-          //  setProductItems(responseData.items);
+            setProductItems(offers);
             setTimeout(
                 function () {
                     setLoading(false);
@@ -38,8 +38,8 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
     let productItemsView;
         if (!loading) {
 
-        if (offers && offers.length > 0) {
-            const slideItems = offers.map((item) => (
+        if (productItems && productItems.length > 0) {
+            const slideItems = productItems.map((item) => (
                 <Productoffer product={item} key={item.id} />
             ));
             productItemsView = (
