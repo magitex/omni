@@ -37,11 +37,10 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
 
     // Views
     let productItemsView;
-        if (!loading) {
-
+    if (!loading) {
         if (productItems && productItems.length > 0) {
             const slideItems = productItems.map((item) => (
-                <Productoffer product={item} key={item.id} />
+                <ProductDealOfDay product={item} key={item.id} />
             ));
             productItemsView = (
                 <Slider {...carouselFullwidth} className="ps-carousel outside">
@@ -51,8 +50,7 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
         } else {
             productItemsView = <p>No product(s) found.</p>;
         }
-     }
-     else {
+    } else {
         const skeletons = generateTempArray(6).map((item) => (
             <div className="col-xl-2 col-lg-3 col-sm-3 col-6" key={item}>
                 <SkeletonProduct />
