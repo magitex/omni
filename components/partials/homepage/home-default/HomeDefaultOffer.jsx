@@ -4,21 +4,22 @@ import Slider from 'react-slick';
 import SkeletonProduct from '~/components/elements/skeletons/SkeletonProduct';
 import { carouselFullwidth } from '~/utilities/carousel-helpers';
 import CountDownSimple from '~/components/elements/CountDownSimple';
-import ProductDealOfDay from '~/components/elements/products/ProductDealOfDay';
+import Productoffer from '~/components/elements/products/Productoffer';
 import { generateTempArray } from '~/utilities/common-helpers';
 import { getProductsByCollectionHelper } from '~/utilities/strapi-fetch-data-helpers';
-
+import {HomeContext} from '~/components/helpers/context';
+import Helper from '~/components/helpers/networks';
 const HomeDefaultOffer = ({ collectionSlug }) => {
     const [productItems, setProductItems] = useState(null);
     const [loading, setLoading] = useState(true);
-
-    async function getProducts() {
+    const {offers}=useContext(HomeContext);
+    async function getProducts(offers) {
         setLoading(true);
         const responseData = await getProductsByCollectionHelper(
             collectionSlug
         );
-        if (responseData) {
-            setProductItems(responseData.items);
+        if (offers) {
+            setProductItems(offers);
             setTimeout(
                 function () {
                     setLoading(false);
@@ -29,15 +30,15 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
     }
 
     useEffect(() => {
-        getProducts();
-    }, []);
+        getProducts(offers);
+    }, [offers]);
 
     // Views
     let productItemsView;
     if (!loading) {
         if (productItems && productItems.length > 0) {
             const slideItems = productItems.map((item) => (
-                <ProductDealOfDay product={item} key={item.id} />
+                <Productoffer product={item} key={item.id} />
             ));
             productItemsView = (
                 <Slider {...carouselFullwidth} className="ps-carousel outside">
