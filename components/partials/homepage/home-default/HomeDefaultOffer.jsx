@@ -8,13 +8,14 @@ import Productoffer from '~/components/elements/products/Productoffer';
 import { generateTempArray } from '~/utilities/common-helpers';
 import { getProductsByCollectionHelper } from '~/utilities/strapi-fetch-data-helpers';
 import {HomeContext} from '~/components/helpers/context';
+import Helper from '~/components/helpers/networks';
 
 const HomeDefaultOffer = ({ collectionSlug }) => {
     const [productItems, setProductItems] = useState(null);
     const [loading, setLoading] = useState(true);
     const {offers}=useContext(HomeContext);
 
-    async function getProducts() {
+    async function getProducts(offers) {
         setLoading(true);
         const responseData = await getProductsByCollectionHelper(
             collectionSlug
@@ -31,7 +32,7 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
     }
 
     useEffect(() => {
-        getProducts();
+        getProducts(offers);
     }, [offers]);
 
     // Views
