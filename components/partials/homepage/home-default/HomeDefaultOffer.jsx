@@ -52,6 +52,14 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
             productItemsView = <p>No product(s) found.</p>;
         }
      }
+     else {
+        const skeletons = generateTempArray(6).map((item) => (
+            <div className="col-xl-2 col-lg-3 col-sm-3 col-6" key={item}>
+                <SkeletonProduct />
+            </div>
+        ));
+        productItemsView = <div className="row">{skeletons}</div>;
+    }
 
     return (
         <div className="ps-deal-of-day">
