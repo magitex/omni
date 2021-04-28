@@ -32,7 +32,7 @@ const HomeDefaultProductListing = ({ collectionSlug, title }) => {
 
     async function getProducts(trendingItems) {
         setLoading(true);
-        const responseData = await getProductsByCollectionHelper(slug);
+       // const responseData = await getProductsByCollectionHelper(slug);
         if (trendingItems) {
             setProductItems(trendingItems);
             setTimeout(
