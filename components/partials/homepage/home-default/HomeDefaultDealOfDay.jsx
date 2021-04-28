@@ -7,7 +7,8 @@ import CountDownSimple from '~/components/elements/CountDownSimple';
 import ProductDealOfDay from '~/components/elements/products/ProductDealOfDay';
 import { generateTempArray } from '~/utilities/common-helpers';
 import { getProductsByCollectionHelper } from '~/utilities/strapi-fetch-data-helpers';
-
+import {HomeContext} from '~/components/helpers/context';
+import Helper from '~/components/helpers/networks';
 const HomeDefaultDealOfDay = ({ collectionSlug }) => {
     const [productItems, setProductItems] = useState(null);
     const [loading, setLoading] = useState(true);

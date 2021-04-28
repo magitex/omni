@@ -4,7 +4,8 @@ import SkeletonProduct from '~/components/elements/skeletons/SkeletonProduct';
 import { getProductsByCollectionHelper } from '~/utilities/strapi-fetch-data-helpers';
 import { generateTempArray } from '~/utilities/common-helpers';
 import { ProductGroupWithCarousel } from '~/components/partials/product/ProductGroupWithCarousel';
-
+import {HomeContext} from '~/components/helpers/context';
+import Helper from '~/components/helpers/networks';
 const HomeDefaultProductListing = ({ collectionSlug, title }) => {
     const [productItems, setProductItems] = useState(null);
     const [currentCollection, setCurrentCollection] = useState('new-arrivals');
