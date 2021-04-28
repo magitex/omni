@@ -15,13 +15,13 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
     const [loading, setLoading] = useState(true);
     const {offers}=useContext(HomeContext);
 
-    async function getProducts(offers) {
+    async function getProducts() {
         setLoading(true);
         const responseData = await getProductsByCollectionHelper(
             collectionSlug
         );
-        if (offers) {
-            setProductItems(offers);
+        if (responseData) {
+            setProductItems(responseData);
             setTimeout(
                 function () {
                     setLoading(false);
@@ -32,8 +32,8 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
     }
 
     useEffect(() => {
-        getProducts(offers);
-    }, [offers]);
+        getProducts();
+    }, []);
 
     // Views
     let productItemsView;
