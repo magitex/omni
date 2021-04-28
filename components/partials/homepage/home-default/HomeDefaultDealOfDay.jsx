@@ -1,24 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect,useContext,useState } from 'react';
 import Link from 'next/link';
 import Slider from 'react-slick';
 import SkeletonProduct from '~/components/elements/skeletons/SkeletonProduct';
 import { carouselFullwidth } from '~/utilities/carousel-helpers';
 import CountDownSimple from '~/components/elements/CountDownSimple';
-import Productoffer from '~/components/elements/products/Productoffer';
+import ProductDealOfDay from '~/components/elements/products/ProductDealOfDay';
 import { generateTempArray } from '~/utilities/common-helpers';
 import { getProductsByCollectionHelper } from '~/utilities/strapi-fetch-data-helpers';
 
 const HomeDefaultDealOfDay = ({ collectionSlug }) => {
     const [productItems, setProductItems] = useState(null);
     const [loading, setLoading] = useState(true);
+    const {dealsOfTheDay}=useContext(HomeContext);
 
-    async function getProducts() {
+
+    async function getProducts(dealsOfTheDay) {
         setLoading(true);
         const responseData = await getProductsByCollectionHelper(
             collectionSlug
         );
-        if (responseData) {
-            setProductItems(responseData.items);
+        if (dealsOfTheDay) {
+            setProductItems(dealsOfTheDay);
             setTimeout(
                 function () {
                     setLoading(false);
@@ -30,7 +32,7 @@ const HomeDefaultDealOfDay = ({ collectionSlug }) => {
 
     useEffect(() => {
         getProducts();
-    }, []);
+    }, [dealsOfTheDay]);
 
     // Views
     let productItemsView;
@@ -69,7 +71,7 @@ const HomeDefaultDealOfDay = ({ collectionSlug }) => {
                                 <figcaption>End in:</figcaption>
                                 <CountDownSimple
                                     timeTillDate="12 31 2021, 6:00 am"
-                                    timeFormat="MM DD YYYY, h:mm a"
+                                    timeF ormat="MM DD YYYY, h:mm a"
                                 />
                             </figure>
                         </div>

@@ -20,6 +20,9 @@ const HomepageDefaultPage = () => {
     const [banners, setBanners] = useState([]);
     const [prodcategories, setProdCategories] = useState([]);
     const [offers, setoffers] = useState([]);
+    const [dealsOfTheDay, setdealsOfTheDay] = useState([]);
+    const [topBrands, settopBrands] = useState([]);
+    const [trendingItems, settrendingItems] = useState([]);
     async function getBannerItems() {
        
         console.log("123 ",localStorage.getItem("token"));
@@ -28,15 +31,22 @@ const HomepageDefaultPage = () => {
         const token=await Helper.getToken();
         console.log("new token11",localStorage.getItem("token"));
         data= await Helper.dashboardData();
-         console.log("data",data);
+        console.log("data",data);
         const tempBanners =data && data.data.data.dashboardPanel.banners; 
         const tempProdCategories =data && data.data.data.dashboardPanel.productCategories; 
         const tempoffers =data && data.data.data.dashboardPanel.offers; 
+        const tempdealsOfTheDay =data && data.data.data.dashboardPanel.dealsOfTheDay; 
+        const temptopBrands =data && data.data.data.dashboardPanel.topBrands; 
+        const temptrendingItems =data && data.data.data.dashboardPanel.trendingItems; 
 
         console.log("123 banners>>",tempBanners)
         setBanners(tempBanners);
         setProdCategories(tempProdCategories);
         setoffers(tempoffers);
+        setdealsOfTheDay(tempdealsOfTheDay);
+        settopBrands(temptopBrands);
+        settrendingItems(temptrendingItems);
+
     }
 
     useEffect(()=>{ 
@@ -48,7 +58,10 @@ const HomepageDefaultPage = () => {
         value={{
             banners,
             prodcategories,
-            offers
+            offers,
+            dealsOfTheDay,
+            topBrands,
+            trendingItems
         }}
         >
         <ContainerHomeDefault title="Multipurpose Marketplace React Ecommerce Template">

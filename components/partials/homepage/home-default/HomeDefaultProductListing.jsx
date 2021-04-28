@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect,useContext,useState } from 'react';
 import Link from 'next/link';
 import SkeletonProduct from '~/components/elements/skeletons/SkeletonProduct';
 import { getProductsByCollectionHelper } from '~/utilities/strapi-fetch-data-helpers';
@@ -9,6 +9,7 @@ const HomeDefaultProductListing = ({ collectionSlug, title }) => {
     const [productItems, setProductItems] = useState(null);
     const [currentCollection, setCurrentCollection] = useState('new-arrivals');
     const [loading, setLoading] = useState(true);
+    const {trendingItems}=useContext(HomeContext);
 
     const sectionLinks = [
         {
@@ -28,11 +29,11 @@ const HomeDefaultProductListing = ({ collectionSlug, title }) => {
         },
     ];
 
-    async function getProducts(slug) {
+    async function getProducts(trendingItems) {
         setLoading(true);
         const responseData = await getProductsByCollectionHelper(slug);
-        if (responseData) {
-            setProductItems(responseData.items);
+        if (trendingItems) {
+            setProductItems(trendingItems);
             setTimeout(
                 function () {
                     setLoading(false);
@@ -49,8 +50,8 @@ const HomeDefaultProductListing = ({ collectionSlug, title }) => {
     }
 
     useEffect(() => {
-        getProducts(collectionSlug);
-    }, [collectionSlug]);
+        getProducts(trendingItems);
+    }, [trendingItems]);
 
     const sectionLinksView = sectionLinks.map((link) => (
         <li
@@ -90,7 +91,7 @@ const HomeDefaultProductListing = ({ collectionSlug, title }) => {
                 <div className="ps-section__header">
                     <h3>{title}</h3>
                     <ul className="ps-section__links">
-                        {sectionLinksView}
+                        
                         <li>
                             <Link href={`/shop`}>
                                 <a>View All</a>

@@ -3,12 +3,12 @@ import Link from 'next/link';
 import {HomeContext} from '~/components/helpers/context';
 
 const HomeDefaultTopBrands = () => {
-    const {prodcategories}=useContext(HomeContext);
+    const {topBrands}=useContext(HomeContext);
    return <div className="ps-top-categories">
         <div className="ps-container">
             <h3>Top Brands</h3>
             <div className="row">
-                {prodcategories && prodcategories.map((pc,key)=>(
+                {topBrands && topBrands.map((pc,key)=>(
                 <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 " key={key}>
                     <div className="ps-block--category">
                         <Link href="/shop">

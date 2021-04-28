@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Rating from '../Rating';
 
 import {
+    omniProductThumbnail,
     StrapiProductBadge,
     StrapiProductPrice,
     StrapiProductThumbnail,
@@ -13,7 +14,7 @@ import ModuleProductActions from '~/components/elements/products/modules/ModuleP
 const Product = ({ product }) => {
     // Views
     const priceView = StrapiProductPrice(product);
-    const thumbnailImage = StrapiProductThumbnail(product);
+    const thumbnailImage = omniProductThumbnail(product);
     const badgeView = StrapiProductBadge(product);
 
     return (
@@ -24,22 +25,23 @@ const Product = ({ product }) => {
                 <ModuleProductActions product={product} />
             </div>
             <div className="ps-product__container">
-                <Link href="/shop">
-                    <a className="ps-product__vendor">Young Shop</a>
-                </Link>
+                
                 <div className="ps-product__content">
-                    <Link href="/product/[pid]" as={`/product/${product.id}`}>
-                        <a className="ps-product__title">{product.title}</a>
+                   <Link href="/product/[pid]" as={`/product/${product.itemTypeID}`}>
+                        <a className="ps-product__title">{product.itemName}</a>
+                    </Link>
+                     <Link href="/shop">
+                    <a className="ps-product__vendor"> {product.itemPrice}</a>
                     </Link>
                     <div className="ps-product__rating">
-                        <Rating />
-                        <span>02</span>
+                       <Rating />
+                        <span>{product.itemRating}</span>
                     </div>
-                    {priceView}
+                    
                 </div>
                 <div className="ps-product__content hover">
-                    <Link href="/product/[pid]" as={`/product/${product.id}`}>
-                        <a className="ps-product__title">{product.title}</a>
+                    <Link href="/product/[pid]" as={`/product/${product.itemTypeIDid}`}>
+                        <a className="ps-product__title">{product.itemName}</a>
                     </Link>
                     {priceView}
                 </div>

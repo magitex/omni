@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Link from 'next/link';
 import Rating from '../Rating';
 import {
+    omniProductThumbnail,
     StrapiProductBadge,
     StrapiProductPriceExpanded,
     StrapiProductThumbnail,
@@ -14,26 +15,22 @@ const ProductDealOfDay = ({ product }) => {
     return (
         <div className="ps-product ps-product--inner">
             <div className="ps-product__thumbnail">
-                {StrapiProductThumbnail(product)}
-                {StrapiProductBadge(product)}
-                <ModuleProductActions product={product} />
+            {omniProductThumbnail(product)}
+            {StrapiProductBadge(product)}
+            <ModuleProductActions product={product} />
             </div>
             <div className="ps-product__container">
-                <Link href="/shop">
-                    <a className="ps-product__vendor">Young Shop</a>
-                </Link>
-                <div className="ps-product__content">
-                    {StrapiProductPriceExpanded(product)}
-
-                    <Link href="/product/[pid]" as={`/product/${product.id}`}>
-                        <a className="ps-product__title">{product.title}</a>
-                    </Link>
-                    <div className="ps-product__rating">
-                        <Rating />
-                        <span>{product.ratingCount}</span>
-                    </div>
-                    <ModuleProductProgressbar product={product} />
-                </div>
+            
+            <div className="ps-product__content">
+                 
+            <Link href="/product/[pid]" as={`/product/${product.itemTypeID}`}>
+            <a className="ps-product__title">{product.itemName}</a>
+            </Link>
+            <div className="ps-product__rating">
+            <Rating />
+            <span>{product.itemRating}</span>
+            </div>                   
+            </div>
             </div>
         </div>
     );
