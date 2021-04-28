@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import SkeletonProduct from '~/components/elements/skeletons/SkeletonProduct';
 import { carouselStandard } from '~/utilities/carousel-helpers';
 import CountDownSimple from '~/components/elements/CountDownSimple';
-import ProductDealOfDay from '~/components/elements/products/ProductDealOfDay';
+import Productoffer from '~/components/elements/products/Productoffer';
 import { generateTempArray } from '~/utilities/common-helpers';
 import { getProductsByCollectionHelper } from '~/utilities/strapi-fetch-data-helpers';
 import {HomeContext} from '~/components/helpers/context';
@@ -39,7 +39,7 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
     if (!loading) {
         if (productItems && productItems.length > 0) {
             const slideItems = productItems.map((item) => (
-                <ProductDealOfDay product={item} key={item.id} />
+                <Productoffer product={item} key={item.id} />
             ));
             productItemsView = (
                 <Slider {...carouselStandard} className="ps-carousel outside">
