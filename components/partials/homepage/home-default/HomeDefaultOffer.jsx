@@ -66,15 +66,7 @@ const HomeDefaultOffer = ({ collectionSlug }) => {
                         <div className="ps-block__left">
                             <h3>Offer</h3>
                         </div>
-                        <div className="ps-block__right">
-                            <figure>
-                                <figcaption>End in:</figcaption>
-                                <CountDownSimple
-                                    timeTillDate="12 31 2021, 6:00 am"
-                                    timeFormat="MM DD YYYY, h:mm a"
-                                />
-                            </figure>
-                        </div>
+                        
                     </div>
                     <Link href="/shop">
                         <a>View all</a>
