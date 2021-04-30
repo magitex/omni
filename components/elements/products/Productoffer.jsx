@@ -27,13 +27,8 @@ const Productoffer = ({ product }) => {
                     <Link href="/product/[pid]" as={`/product/${product.itemTypeID}`}>
                         <a className="ps-product__title">{product.itemName}</a>
                     </Link>
-                    <Link href="/shop">
-                    <a className="ps-product__vendor"> {product.itemPrice}</a>
-                    </Link>
-                    <div className="ps-product__rating">
-                        <Rating />
-                        <span>{product.itemRating}</span>
-                    </div>                                     
+                    
+                                                      
                 </div>
             </div>
         </div>
