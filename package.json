@@ -5,12 +5,13 @@
     "scripts": {
         "dev": "next dev -p 3001",
         "build": "next build",
-        "build-dev":"next build && next export",
+        "build-dev": "next build && next export",
         "start": "next start -p $PORT",
-        "start:prod":"next start -p 8080",
-        "heroku-postbuild": "npm run build"     
+        "start:prod": "next start -p 8080",
+        "heroku-postbuild": "npm run build"
     },
     "dependencies": {
+        "@react-native-community/geolocation": "^2.0.2",
         "@zeit/next-sass": "^1.0.1",
         "antd": "^4.5.2",
         "axios": "^0.19.2",

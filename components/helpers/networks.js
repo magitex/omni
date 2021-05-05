@@ -1,5 +1,53 @@
+import React, {useState, useEffect} from 'react';
 import config from './config';
 import axios from 'axios';
+import Geolocation from '@react-native-community/geolocation';
+const [
+    currentLongitude,
+    setCurrentLongitude
+  ] = useState('...');
+  const [
+    currentLatitude,
+    setCurrentLatitude
+  ] = useState('...');
+  const [
+    locationStatus,
+    setLocationStatus
+  ] = useState('');
+  const getOneTimeLocation = () => {
+    setLocationStatus('Getting Location ...');
+    Geolocation.getCurrentPosition(
+      //Will give you the current location
+      (position) => {
+        setLocationStatus('You are Here');
+
+        //getting the Longitude from the location json
+        const currentLongitude = 
+          JSON.stringify(position.coords.longitude);
+          localStorage.setItem('longitude', JSON.stringify(position.coords.longitude));
+          //localStorage.setItem('token_type', authData.token_type);
+          console.log("longitude ",JSON.stringify(position.coords.longitude));
+        //getting the Latitude from the location json
+        const currentLatitude = 
+          JSON.stringify(position.coords.latitude);
+          localStorage.setItem('latitude', JSON.stringify(position.coords.latitude));
+          console.log("latitude ",JSON.stringify(position.coords.latitude));
+        //Setting Longitude state
+        setCurrentLongitude(currentLongitude);
+        
+        //Setting Longitude state
+        setCurrentLatitude(currentLatitude);
+      },
+      (error) => {
+        setLocationStatus(error.message);
+      },
+      {
+        enableHighAccuracy: false,
+        timeout: 30000,
+        maximumAge: 1000
+      },
+    );
+  };
 var qs = require('qs');
 const serverUrl = config.baseUrl;
 if (typeof window !== 'undefined')
